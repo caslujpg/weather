@@ -1,9 +1,15 @@
+import { Header } from "./components/Header";
+import { Dashboard } from "./components/Dashboard";
+import { Footer } from "./components/Footer";
+import { GlobalStyle } from "./styles/global";
+
 export function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Header />
+      <Dashboard />
+      <Footer />
+      <GlobalStyle />
+    </>
   );
 }
-
-export default App;
