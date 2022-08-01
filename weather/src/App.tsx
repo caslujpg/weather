@@ -1,17 +1,18 @@
-import { Header } from "./components/Header";
-import { Dashboard } from "./components/Dashboard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Footer } from "./components/Footer";
-import { GlobalStyle } from "./styles/global";
-
-export const ReactAppGoogleApiKey = "AIzaSyAgcFSLSwZlYpyldU6IHEO8QRMGdo3kJqE";
+import { Header } from "./components/Header";
+import Home from "./pages/Home";
+import Result from "./pages/Result";
 
 export function App() {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <Dashboard />
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="result" element={<Result />} />
+      </Routes>
       <Footer />
-      <GlobalStyle />
-    </>
+    </BrowserRouter>
   );
 }
