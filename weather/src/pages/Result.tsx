@@ -3,7 +3,7 @@ import axios from 'axios';
 import { IWeather } from '../types/App'
 
 export default function Result() {
-    
+
     const [location, setLocation] = useState({});
     const [weather, setWeather] = useState<IWeather | null>(null);
 
@@ -12,7 +12,7 @@ export default function Result() {
             params: {
                 lat: lat,
                 lon: long,
-                appid: "bffc54d835a2d2ebda203f5ebb3842b0",
+                appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
                 lang: 'pt',
                 units: 'metric'
             }

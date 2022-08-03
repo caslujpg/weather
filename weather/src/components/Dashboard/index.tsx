@@ -20,7 +20,7 @@ export function Dashboard() {
     }
 
     const onPlacesChanged = () => {
-        const places = searchBox?.getPlaces();
+        const places = searchBox!.getPlaces();
         if (places) handleRedirect();
     };
  
