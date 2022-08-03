@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import Home from "./pages/Home";
-import Result from "./pages/Result";
+import Results from "./pages/Results";
 
 export function App() {
   return (
@@ -10,7 +10,7 @@ export function App() {
       <Header />
       <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="result" element={<Result />} />
+          <Route path="/results/:location" element={<Results />} />
       </Routes>
       <Footer />
     </BrowserRouter>
