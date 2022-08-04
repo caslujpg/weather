@@ -10,12 +10,12 @@ export const Container = styled.footer`
         width: 100%;
         color: #FFFFFF;
 
-        .lenguageText{
+        .languageText{
               display: flex;
               margin-top: 10px;
         }
         
-        .lenguageImg{
+        .languageImg{
                 display: flex;
                 gap: 10px;
         }

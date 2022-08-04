@@ -4,33 +4,33 @@ import spainImg from '../../assets/spain.svg'
 
 import { Container } from './styles'
 import { useState } from 'react'
-import { useLenguage } from '../../context/lenguageContext'
+import { useLanguage } from '../../context/languageContext'
 
 export function Footer() {
 
-    const {setLenguage, lenguage} = useLenguage();
+    const {setLanguage, language} = useLanguage();
 
     return(
         <Container>
-            <section className="lenguageImg">
+            <section className="languageImg">
                     <img 
                         className="hover"
-                        onClick={()=>setLenguage("Portugês")} 
+                        onClick={()=>setLanguage("Portugês")} 
                         src={brazilImg} alt="brazil"
                     />
                     <img 
                         className="hover"
-                        onClick={()=>setLenguage("English")} 
+                        onClick={()=>setLanguage("English")} 
                         src={usaImg} alt="usa"/>
                     <img 
                         className="hover"
-                        onClick={()=>setLenguage("Spain")} 
+                        onClick={()=>setLanguage("Spain")} 
                         src={spainImg} alt="spain"
                     />  
             </section>
 
-            <section className="lenguageText">
-                   <p>Idioma selecionado: {lenguage}</p>
+            <section className="languageText">
+                   <p>Idioma selecionado: {language}</p>
             </section>            
         </Container>
     );

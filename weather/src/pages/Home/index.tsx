@@ -5,7 +5,7 @@ import ReactGoogleMapLoader from "react-google-maps-loader";
 import useRunOnce from "../../hooks/useRunOnce";
 import { useNavigate } from "react-router-dom";
 import { Container } from "./styles"
-import { useLenguage } from "../../context/lenguageContext";
+import { useLanguage } from "../../context/languageContext";
 
 export default function Home() {
     let navigate = useNavigate();
@@ -16,7 +16,7 @@ export default function Home() {
 
     const [location, setLocation] = useState<Object>({});
 
-    const {lenguage} = useLenguage();
+    const { language } = useLanguage();
 
     function handleInputChange(e: any) {
         setSearch(e.target.value);
@@ -27,7 +27,7 @@ export default function Home() {
         setValue(geocodedPrediction.formatted_address);
         setLocation((geocodedPrediction.geometry));
         console.log(location);
-        return navigate(`/results/?lat=${JSON.parse(JSON.stringify(geocodedPrediction.geometry.lat))}&lng=${JSON.parse(JSON.stringify(geocodedPrediction.geometry.lng))}`);
+        return navigate(`/results/?lat=${geocodedPrediction.geometry.lat}&lng=${geocodedPrediction.geometry.lng}`);
     }
 
     function handleGetGeolocation() {
@@ -37,31 +37,31 @@ export default function Home() {
             switch (errorCallback.code) {
                 case errorCallback.PERMISSION_DENIED:
                     alert(
-                        lenguage === "Portugês" ? "O usuario rejeitou a solicitaçao de geolocalizaçao" : 
-                        lenguage === "English" ? "User rejected geolocalization request" : 
-                        lenguage ? "Solicitud de geolocalización rechazada por el usuario" : ""
+                        language === "Portugês" ? "O usuario rejeitou a solicitaçao de geolocalizaçao" :
+                            language === "English" ? "User rejected geolocalization request" :
+                                language ? "Solicitud de geolocalización rechazada por el usuario" : ""
                     )
                     break;
                 case errorCallback.POSITION_UNAVAILABLE:
                     alert(
-                        lenguage === "Portugês" ? "Localizaçao indisponivel" : 
-                        lenguage === "English" ? "Position Unavailable" : 
-                        lenguage ? "Ubicación no disponible" : ""
+                        language === "Portugês" ? "Localizaçao indisponivel" :
+                            language === "English" ? "Position Unavailable" :
+                                language ? "Ubicación no disponible" : ""
                     )
                     break;
                 case errorCallback.TIMEOUT:
                     alert(
-                        lenguage === "Portugês" ? "O tempo expirou" : 
-                        lenguage === "English" ? "Time out" : 
-                        lenguage ? "Tiempo expiró" : ""
+                        language === "Portugês" ? "O tempo expirou" :
+                            language === "English" ? "Time out" :
+                                language ? "Tiempo expiró" : ""
                     )
                     window.location.reload();
                     break;
                 default:
                     alert(
-                        lenguage === "Portugês" ? "Erro desconhecido" : 
-                        lenguage === "English" ? "Unknown error" : 
-                        lenguage ? "error desconocido" : ""
+                        language === "Portugês" ? "Erro desconhecido" :
+                            language === "English" ? "Unknown error" :
+                                language ? "error desconocido" : ""
                     )
                     break;
             }
@@ -74,9 +74,9 @@ export default function Home() {
                 handleGetGeolocation();
             } else {
                 alert(
-                    lenguage === "Portugês" ? "Seu navegador nao suporta geolocalizaçao" : 
-                    lenguage === "English" ? "Your browser doesn't support geolocalization" : 
-                    lenguage ? "Tu navegador no soporta geolocalización" : ""
+                    language === "Portugês" ? "Seu navegador nao suporta geolocalizaçao" :
+                        language === "English" ? "Your browser doesn't support geolocalization" :
+                            language ? "Tu navegador no soporta geolocalización" : ""
                 );
             }
         }
@@ -88,26 +88,27 @@ export default function Home() {
                 <ReactGoogleMapLoader params={{ key: `${process.env.REACT_APP_GOOGLE_API_KEY}`, libraries: "places, geocode" }} render={
                     googleMaps => googleMaps && (
 
-                        <div className="divInputSearch">
-                            <input
-                                className="inputSearch"
-                                type="text"
-                                value={value}
-                                placeholder={
-                                    lenguage === "Portugês" ? "Digite o nome da cidade" : 
-                                    lenguage === "English" ? "Enter the city name" : 
-                                    lenguage ? "Introduzca el nombre de la ciudad" : ""
-                                }
-                                onChange={(e) => handleInputChange(e)}
-                            />
-                            <div className="divReactGooglePlacesSuggest">
-                                <ReactGooglePlacesSuggest
-                                    googleMaps={googleMaps}
-                                    autocompletionRequest={{ input: search }}
-                                    onSelectSuggest={handleSelectSuggest}
-                                ></ReactGooglePlacesSuggest>
-                            </div>
+
+                        <div className="divReactGooglePlacesSuggest">
+                            <ReactGooglePlacesSuggest
+                                googleMaps={googleMaps}
+                                autocompletionRequest={{ input: search }}
+                                onSelectSuggest={handleSelectSuggest}
+                            >
+                                <input
+                                    className="inputSearch"
+                                    type="text"
+                                    value={value}
+                                    placeholder={
+                                        language === "Portugês" ? "Digite o nome da cidade" :
+                                            language === "English" ? "Enter the city name" :
+                                                language ? "Introduzca el nombre de la ciudad" : ""
+                                    }
+                                    onChange={(e) => handleInputChange(e)}
+                                />
+                            </ReactGooglePlacesSuggest>
                         </div>
+
                     )
                 } />
                 <GlobalStyle />
