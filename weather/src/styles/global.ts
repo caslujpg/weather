@@ -8,9 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-image: url(../assets/background.svg);
-        background-size: auto;
-        background-position: center center;
+        background-image: url(./sky1.png);
+        background-size: cover;
+        background-repeat: no-repeat;
         
         -webkit-font-smoothing: antialiased;
     }

@@ -4,7 +4,8 @@ export function Header() {
     return (
         <Container>
             <Content>
-                °F<button type="button"></button>°C
+                <input id="switch-shadow" className="switch switch--shadow" type="checkbox" />
+                °F<label htmlFor="switch-shadow"></label>°C
             </Content>
         </Container>
     );

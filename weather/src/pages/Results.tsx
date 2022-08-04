@@ -9,7 +9,7 @@ export default function Results() {
     const [weather, setWeather] = useState<IWeather | null>();
 
     const fetchWeather = async ()=> {
-        // setWeather(await getWeather(location?.lat, location?.lng))
+        //setWeather(await getWeather(location?.lat, location?.lng))
         
     }
 
