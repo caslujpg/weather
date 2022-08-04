@@ -3,7 +3,6 @@ import usaImg from '../../assets/usa.svg'
 import spainImg from '../../assets/spain.svg'
 
 import { Container } from './styles'
-import { useState } from 'react'
 import { useLanguage } from '../../context/languageContext'
 
 export function Footer() {
@@ -15,16 +14,16 @@ export function Footer() {
             <section className="languageImg">
                     <img 
                         className="hover"
-                        onClick={()=>setLanguage("Portugês")} 
+                        onClick={()=>setLanguage("pt_br")} 
                         src={brazilImg} alt="brazil"
                     />
                     <img 
                         className="hover"
-                        onClick={()=>setLanguage("English")} 
+                        onClick={()=>setLanguage("en")} 
                         src={usaImg} alt="usa"/>
                     <img 
                         className="hover"
-                        onClick={()=>setLanguage("Spain")} 
+                        onClick={()=>setLanguage("sp")} 
                         src={spainImg} alt="spain"
                     />  
             </section>

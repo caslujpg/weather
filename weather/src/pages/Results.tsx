@@ -1,39 +1,63 @@
+import { useMemo } from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import getWeather from '../service/getWeather';
-import { IWeather } from '../types/App';
-// import { Location } from '../types/Location'
+import { Header } from "../components/Header";
+
+type Weather = {
+    name: string;
+    description: string;
+    currentTemp: number;
+    tempMax: number;
+    tempMin: number;
+    unit: string;
+};
 
 export default function Results() {
     const [location] = useSearchParams();
 
-    const geos = Object.fromEntries([...location]) as {lat: string, lng: string};
+    const navigate = useNavigate();
 
-    // const {state} = useLocation() as Location<IWeather> 
+    const geos = useMemo(()=>{
+        return Object.fromEntries([...location]) as {lat: string, lng: string}
+    }, [location]);
 
-    const [weather, setWeather] = useState<IWeather | null>();
+    const [weather, setWeather] = useState<Weather | null>();
 
     const fetchWeather = useCallback (async ()=> {
         if(!geos?.lat && !geos?.lng) {
             return
         }
-        const result = await getWeather(parseFloat(geos?.lat), parseFloat(geos?.lng));
-        setWeather(result);
+
+        const storaged = localStorage.getItem("weather:thermalScale");
+
+        const isCelcius = storaged ? JSON.parse(storaged) : false;
+
+        const result = await getWeather(parseFloat(geos?.lat), parseFloat(geos?.lng), isCelcius);
+        setWeather({
+            currentTemp: result.main.temp,
+            tempMax: result.main.temp_max,
+            tempMin: result.main.temp_min,
+            unit: isCelcius ? "°C" : "°F",
+            name: result.name,
+            description: result.weather.at(0)?.description || "",
+        });
     }, [geos])
 
     useEffect(()=> {
-        console.log("useEffect", JSON.stringify(location));
         fetchWeather();
     }, [fetchWeather, location])
 
     return (
         <>
-            <h3>{weather?.name}({weather?.weather[0].description})</h3>
+            <Header onChangeUnit={fetchWeather}/>
+            <button onClick={() => navigate("/")}>voltar</button>
+            <h3>{weather?.name}({weather?.description})</h3>
             <hr />
             <ul>
-                <li>Temperatura atual: {weather?.main.temp}°</li>
-                <li>MAX: {weather?.main.temp_max}°</li>
-                <li>MIN: {weather?.main.temp_min}°</li>
+                <li>Temperatura atual: {weather?.currentTemp}{weather?.unit}</li>
+                <li>MAX: {weather?.tempMax}{weather?.unit}</li>
+                <li>MIN: {weather?.tempMin}{weather?.unit}</li>
             </ul>
         </>
     );
