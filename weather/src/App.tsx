@@ -9,12 +9,14 @@ export function App() {
   return (
     <BrowserRouter>
       <LanguageContextProvider>
-        <Header />
-        <Routes>
+        <div style={{ height: "100vh" }}>
+          <Header />
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/results/:location" element={<Results />} />
-        </Routes>
-        <Footer />
+          </Routes>
+          <Footer />
+        </div>
       </LanguageContextProvider>
     </BrowserRouter>
   );

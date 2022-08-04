@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
     .caapeD{
         display: flex;
         flex-direction: column;
@@ -27,7 +32,7 @@ export const Container = styled.div`
     }
 
     .kTnDmO {
-        position: relative;
+        position: static;
         display: flex;
         flex-direction: column;
         border-bottom-right-radius: 20px;

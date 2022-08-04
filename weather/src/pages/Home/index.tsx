@@ -1,5 +1,5 @@
 import { GlobalStyle } from "../../styles/global";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ReactGooglePlacesSuggest from "react-google-places-suggest";
 import ReactGoogleMapLoader from "react-google-maps-loader";
 import useRunOnce from "../../hooks/useRunOnce";
