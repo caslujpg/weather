@@ -1,23 +1,30 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import getWeather from '../service/getWeather';
 import { IWeather } from '../types/App';
+// import { Location } from '../types/Location'
 
 export default function Results() {
-    let {location} = useParams();
+    const [location] = useSearchParams();
+
+    const geos = Object.fromEntries([...location]) as {lat: string, lng: string};
+
+    // const {state} = useLocation() as Location<IWeather> 
 
     const [weather, setWeather] = useState<IWeather | null>();
 
-    const fetchWeather = async ()=> {
-        //setWeather(await getWeather(location?.lat, location?.lng))
-        
-    }
+    const fetchWeather = useCallback (async ()=> {
+        if(!geos?.lat && !geos?.lng) {
+            return
+        }
+        const result = await getWeather(parseFloat(geos?.lat), parseFloat(geos?.lng));
+        setWeather(result);
+    }, [geos])
 
     useEffect(()=> {
-        console.log(JSON.stringify(location));
+        console.log("useEffect", JSON.stringify(location));
         fetchWeather();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [fetchWeather, location])
 
     return (
         <>

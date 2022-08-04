@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { LanguageContextProvider } from "./context/languageContext";
@@ -13,7 +13,7 @@ export function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/results/:location" element={<Results />} />
+            <Route path="/results" element={<Results />} />
           </Routes>
           <Footer />
         </div>

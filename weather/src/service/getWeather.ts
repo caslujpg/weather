@@ -10,6 +10,7 @@ const getWeather = async (lat: number, lng: number) => {
             units: 'metric'
         }
     });
+    console.log("res", res.data);
     return(res.data);
 }
 

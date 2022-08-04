@@ -26,8 +26,12 @@ export default function Home() {
     function handleSelectSuggest(geocodedPrediction: any) {
         setValue(geocodedPrediction.formatted_address);
         setLocation((geocodedPrediction.geometry));
-        console.log(location);
-        return navigate(`/results/?lat=${geocodedPrediction.geometry.lat}&lng=${geocodedPrediction.geometry.lng}`);
+        return navigate(
+            `/results/?lat=${geocodedPrediction.geometry.location.lat()}&lng=${geocodedPrediction.geometry.location.lng()}`, 
+            {
+                state: {location}
+            }
+        );
     }
 
     function handleGetGeolocation() {
@@ -95,17 +99,17 @@ export default function Home() {
                                 autocompletionRequest={{ input: search }}
                                 onSelectSuggest={handleSelectSuggest}
                             >
-                                <input
-                                    className="inputSearch"
-                                    type="text"
-                                    value={value}
-                                    placeholder={
-                                        language === "Portugês" ? "Digite o nome da cidade" :
-                                            language === "English" ? "Enter the city name" :
-                                                language ? "Introduzca el nombre de la ciudad" : ""
-                                    }
-                                    onChange={(e) => handleInputChange(e)}
-                                />
+                                    <input
+                                        className="inputSearch"
+                                        type="text"
+                                        value={value}
+                                        placeholder={
+                                            language === "Portugês" ? "Digite o nome da cidade" :
+                                                language === "English" ? "Enter the city name" :
+                                                    language ? "Introduzca el nombre de la ciudad" : ""
+                                        }
+                                        onChange={(e) => handleInputChange(e)}
+                                    />
                             </ReactGooglePlacesSuggest>
                         </div>
 
