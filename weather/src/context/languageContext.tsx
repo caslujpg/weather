@@ -1,26 +1,35 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useCallback, useContext, useState } from "react";
 
 interface LanguageContextProps {
   children: ReactNode;
 }
 
 type LanguageContextType = {
-  language: string;
-  setLanguage: (newState: string) => void;
+  language: keyof typeof languageMap;
+  longLanguage: string;
+  handleChangeLanguage: (language: keyof typeof languageMap) => void;
 };
 
-const initialState = {
-  language: "Portugês",
-  setLanguage: () => "Portugês",
-};
+export const LanguageContext = createContext<LanguageContextType>({} as LanguageContextType);
 
-export const LanguageContext = createContext<LanguageContextType>(initialState);
+const languageMap = {
+  "pt_br": "Portugês",
+  "en": "English",
+  "sp": "Spain"
+}
 
 export function LanguageContextProvider({ children }: LanguageContextProps) {
-  const [language, setLanguage] = useState(initialState.language);
+  const [language, setLanguage] = useState<keyof typeof languageMap>("pt_br");
+
+  const [longLanguage, setLongLanguage] = useState(languageMap["pt_br"]);
+
+  const handleChangeLanguage = useCallback((newLanguage: keyof typeof languageMap) => {
+    setLanguage(newLanguage);
+    setLongLanguage(languageMap[newLanguage]) 
+  }, [])
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language, handleChangeLanguage, longLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

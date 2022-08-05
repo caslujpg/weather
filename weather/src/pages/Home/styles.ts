@@ -1,56 +1,28 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    background: red;
+    width: 100%;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    padding: 0 24px;
 
-    .caapeD{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
-
-    .inputSearch{
-        position: relative;
-        display: flex;
-        width: 710px;
+    .inputSearch {
+        width: 100%;
+        max-width: 710px;
         height: 50px;
         background: rgba(255, 255, 255, 0.77);
         border-radius: 10px;
-        border: 0;
         outline: none;
-        padding-left: 10px;
+        border: none;
+        padding-left: 15px;
+        color: #6AA2D1;
         font-size: 20px;
 
-        ::placeholder{
+        ::placeholder {
             color: #6AA2D1;
         }
-    }
-
-    .kTnDmO {
-        position: static;
-        display: flex;
-        flex-direction: column;
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        width: 710px;
-    }
-
-    .kFHpLq {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
-    
-    .divReactGooglePlacesSuggest{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
     }
 `;

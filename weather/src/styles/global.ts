@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import  backgroundImg from '../assets/sky1.png'
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -8,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-image: url(./sky1.png);
+        background-image: url(${backgroundImg});
         background-size: cover;
         background-repeat: no-repeat;
         

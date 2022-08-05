@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Container } from "./styles"
 import { useLanguage } from "../../context/languageContext";
 import { Header } from "../../components/Header";
+import { translate } from "./translate"
 
 type Location = {
     lat: number;
@@ -41,14 +42,9 @@ export default function Home() {
 
     const handleGetGeolocation = useCallback(() => {
         if (!navigator.geolocation) {
-            return alert(
-                language === "Portugês" ? "Seu navegador nao suporta geolocalizaçao" :
-                    language === "English" ? "Your browser doesn't support geolocalization" :
-                        language ? "Tu navegador no soporta geolocalización" : ""
-            );
+            return alert(translate.geoNotSupported(language));
         }
         navigator.geolocation.getCurrentPosition((successCallback) => {
-            console.log("chegou na funçao geolocation");
             const newLocation = { lat: successCallback.coords.latitude, lng: successCallback.coords.longitude };
             setLocation(newLocation);
             navigate(
@@ -60,79 +56,56 @@ export default function Home() {
         }, (errorCallback) => {
             switch (errorCallback.code) {
                 case errorCallback.PERMISSION_DENIED:
-                    alert(
-                        language === "Portugês" ? "O usuario rejeitou a solicitaçao de geolocalizaçao" :
-                            language === "English" ? "User rejected geolocalization request" :
-                                language ? "Solicitud de geolocalización rechazada por el usuario" : ""
-                    )
+                    alert(translate.geoRejected(language))
                     break;
                 case errorCallback.POSITION_UNAVAILABLE:
-                    alert(
-                        language === "Portugês" ? "Localizaçao indisponivel" :
-                            language === "English" ? "Position Unavailable" :
-                                language ? "Ubicación no disponible" : ""
-                    )
+                    alert(translate.geoUnavailable(language))
                     break;
                 case errorCallback.TIMEOUT:
-                    alert(
-                        language === "Portugês" ? "O tempo expirou" :
-                            language === "English" ? "Time out" :
-                                language ? "Tiempo expiró" : ""
-                    )
+                    alert(translate.geoTimeOut(language))
                     window.location.reload();
                     break;
                 default:
-                    alert(
-                        language === "Portugês" ? "Erro desconhecido" :
-                            language === "English" ? "Unknown error" :
-                                language ? "error desconocido" : ""
-                    )
+                    alert(translate.geoUnknownError(language))
                     break;
             }
         })
     }, [language, navigate])
 
     const openLocationPopUp = useCallback(() => {
-        const isConfirmed = window.confirm(
-            language === "Portugês" ? "Deseja usar sua localizaçao?" :
-                language === "English" ? "Like use your localization?" :
-                    language ? "Quieres usar su ubicacion" : ""
-        );
+        const isConfirmed = window.confirm(translate.useYourLocation(language));
         if (isConfirmed) {
             handleGetGeolocation();
         }
     }, [language, handleGetGeolocation])
 
-    useRunOnce({fn: openLocationPopUp})
+    useRunOnce({ fn: openLocationPopUp })
 
     return (
         <>
             <Header />
+
             <Container>
+                <h1>Como está o tempo hoje?</h1>
                 <ReactGoogleMapLoader params={{ key: `${process.env.REACT_APP_GOOGLE_API_KEY}`, libraries: "places, geocode" }} render={
                     googleMaps => googleMaps && (
-                        <div className="divReactGooglePlacesSuggest">
-                            <ReactGooglePlacesSuggest
-                                googleMaps={googleMaps}
-                                autocompletionRequest={{ input: search }}
-                                onSelectSuggest={handleSelectSuggest}
-                            >
-                                <input
-                                    className="inputSearch"
-                                    type="text"
-                                    value={value}
-                                    placeholder={
-                                        language === "Portugês" ? "Digite o nome da cidade" :
-                                            language === "English" ? "Enter the city name" :
-                                                language ? "Introduzca el nombre de la ciudad" : ""
-                                    }
-                                    onChange={(e) => handleInputChange(e)}
-                                />
-                            </ReactGooglePlacesSuggest>
-                        </div>
+                        <ReactGooglePlacesSuggest
+                            googleMaps={googleMaps}
+                            autocompletionRequest={{ input: search }}
+                            onSelectSuggest={handleSelectSuggest}
+                        >
+                            <input
+                                className="inputSearch"
+                                type="text"
+                                value={value}
+                                placeholder={translate.inputCityName(language)}
+                                onChange={(e) => handleInputChange(e)}
+                            />
+                        </ReactGooglePlacesSuggest>
                     )
                 } />
             </ Container>
+            
         </>
     );
 }

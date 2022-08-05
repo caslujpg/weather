@@ -5,7 +5,7 @@ import { GlobalStyle } from "./styles/global";
 
 import { Footer } from "./components/Footer";
 import Home from "./pages/Home";
-import Results from "./pages/Results";
+import Results from "./pages/ResultWeather";
 
 export function App() {
   return (

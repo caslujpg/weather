@@ -1,13 +1,17 @@
 import { useState } from 'react';
-import { Container, Content } from './styles'
+import * as Styled from './styles'
+
+import rightArrowImg from '../../assets/rightArrow.svg';
+import { Switch } from '../Switch';
 
 const thermalScaleStoragedKey = "weather:thermalScale";
 
 type HeaderProps = {
     onChangeUnit?(): void;
+    onBack?(): void;
 };
 
-export function Header({onChangeUnit}: HeaderProps) {
+export function Header({onChangeUnit, onBack}: HeaderProps) {
     const [isChecked, setIsChecked] = useState<boolean>(() => {
         const storaged = localStorage.getItem(thermalScaleStoragedKey);
         return storaged ? JSON.parse(storaged) : false;
@@ -22,11 +26,20 @@ export function Header({onChangeUnit}: HeaderProps) {
     }
 
     return (
-        <Container>
-            <Content>
-                <input checked={isChecked} onChange={handleChange} id="switch-shadow" className="switch switch--shadow" type="checkbox" />
-                °F<label htmlFor="switch-shadow"></label>°C
-            </Content>
-        </Container>
+        <Styled.Container>
+            <Styled.BackButton onClick={onBack}>
+                <img
+                    src={rightArrowImg}
+                    alt="rightArrow"
+                />
+            </Styled.BackButton>
+
+            <Switch 
+                onChange={handleChange}
+                isChecked={isChecked}
+                labelLeft="°F"
+                labelRight="°C"
+            />
+        </Styled.Container>
     );
 }
