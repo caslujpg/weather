@@ -5,7 +5,7 @@
 
 
   <h2 id="sobre">💻O projeto💻</h2>
-  Projeto feito durante o processo seletivo do [Letras](https://letras.com/)
+  Projeto feito durante o processo seletivo do Letras.com
   E uma aplicação que exibe os dados climáticos da região ou das cidades escolhidas, com funçoes de:
   geolocalizaçao, autocomplete, previsao para os proximos 5 dias, medidas em °C ou °F e 3 opçoes de idiomas. 
   Feito com React, typescript, JS e HTML.
