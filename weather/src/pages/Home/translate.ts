@@ -59,7 +59,7 @@ export const translate = {
 
     seeNextWeather(language: Language) {
         return {
-            "pt_br": "Ver previsão para os próximos 5 días",
+            "pt_br": "Ver previsão para os próximos 5 dias",
             "en": "See forecast for the next 5 days",
             "sp": "Ver previsión para los próximos 5 días"
         }[language]

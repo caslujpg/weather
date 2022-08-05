@@ -9,7 +9,7 @@ const selectedLanguage = {
     "pt_br": "Idioma selecionado",
     "en": "Selected language",
     "sp": "Idioma seleccionado"
-  }
+}
 
 export function Footer() {
 
