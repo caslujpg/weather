@@ -4,7 +4,7 @@ Consiste em um web software que pega sua geolocalizaçao ou entao um local no qu
 com opçoes de linguagem em pt_br, en ou sp, consumindo 2 apis, uma do google e outra do openWeather
 <h1 align="center">🌦️Weather🌦️</h1>
 
-<p align="center">  <a href="#sobre">Sobre</a> • <a href="#layout">Layout</a> • <a href="#aplicacao">Aplicação</a>  • <a href="#techs">Tecnologias</a> • <a href="#autor">Autor</a> • <a href="#licenca">Licença</a> </p>
+<p align="center">  <a href="#sobre">Sobre</a> • <a href="#aplicacao">Aplicação</a>  • <a href="#techs">Tecnologias</a> • <a href="#autor">Autor</a>
 
 
   <h2 id="sobre">💻O projeto💻</h2>
