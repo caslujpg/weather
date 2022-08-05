@@ -29,7 +29,7 @@ $ yarn start
 # O app estará disponível no seu browser pelo endereço - http://localhost:3000
 ```
 
-Obs: precisa pegar a sua chave api do [openweather](https://openweathermap.org/api) e a do [GoogleCloud](https://cloud.google.com/apis)
+Obs: precisa pegar a sua chave api do [OpenWeather](https://openweathermap.org/api) e do [GoogleCloud](https://cloud.google.com/apis)
  
  <h2 id="techs">👨🏻‍💻Tecnologias👨🏻‍💻</h2>
  As seguintes ferramentas foram utilizadas no projeto:
