@@ -3,10 +3,11 @@ import ReactGooglePlacesSuggest from "react-google-places-suggest";
 import ReactGoogleMapLoader from "react-google-maps-loader";
 import useRunOnce from "../../hooks/useRunOnce";
 import { useNavigate } from "react-router-dom";
-import { Container } from "./styles"
 import { useLanguage } from "../../context/languageContext";
-import { Header } from "../../components/Header";
 import { translate } from "./translate"
+import * as Styled from './styles'
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
 
 type Location = {
     lat: number;
@@ -82,30 +83,34 @@ export default function Home() {
     useRunOnce({ fn: openLocationPopUp })
 
     return (
-        <>
+        <Styled.Container>
             <Header />
 
-            <Container>
-                <h1>Como está o tempo hoje?</h1>
-                <ReactGoogleMapLoader params={{ key: `${process.env.REACT_APP_GOOGLE_API_KEY}`, libraries: "places, geocode" }} render={
-                    googleMaps => googleMaps && (
-                        <ReactGooglePlacesSuggest
-                            googleMaps={googleMaps}
-                            autocompletionRequest={{ input: search }}
-                            onSelectSuggest={handleSelectSuggest}
-                        >
-                            <input
-                                className="inputSearch"
-                                type="text"
-                                value={value}
-                                placeholder={translate.inputCityName(language)}
-                                onChange={(e) => handleInputChange(e)}
-                            />
-                        </ReactGooglePlacesSuggest>
-                    )
-                } />
-            </ Container>
-            
-        </>
+            <Styled.Content>
+                <h1>{translate.weatherToday(language)}</h1>
+                <Styled.InputSuggestContainer>
+                    <ReactGoogleMapLoader params={{ key: `${process.env.REACT_APP_GOOGLE_API_KEY}`, libraries: "places, geocode" }} render={
+                        googleMaps => googleMaps && (
+                            <ReactGooglePlacesSuggest
+                                googleMaps={googleMaps}
+                                autocompletionRequest={{ input: search }}
+                                onSelectSuggest={handleSelectSuggest}
+                            >
+                                <input
+                                    className="inputSearch"
+                                    type="text"
+                                    value={value}
+                                    placeholder={translate.inputCityName(language)}
+                                    onChange={(e) => handleInputChange(e)}
+                                />
+                            </ReactGooglePlacesSuggest>
+                        )
+                    } />
+                </Styled.InputSuggestContainer>
+            </ Styled.Content>
+
+            <Footer />
+
+        </Styled.Container>
     );
 }

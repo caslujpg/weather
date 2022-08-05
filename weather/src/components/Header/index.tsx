@@ -2,7 +2,6 @@ import { useState } from 'react';
 import * as Styled from './styles'
 
 import rightArrowImg from '../../assets/rightArrow.svg';
-import { Switch } from '../Switch';
 
 const thermalScaleStoragedKey = "weather:thermalScale";
 
@@ -11,7 +10,7 @@ type HeaderProps = {
     onBack?(): void;
 };
 
-export function Header({onChangeUnit, onBack}: HeaderProps) {
+export function Header({ onChangeUnit, onBack }: HeaderProps) {
     const [isChecked, setIsChecked] = useState<boolean>(() => {
         const storaged = localStorage.getItem(thermalScaleStoragedKey);
         return storaged ? JSON.parse(storaged) : false;
@@ -27,14 +26,16 @@ export function Header({onChangeUnit, onBack}: HeaderProps) {
 
     return (
         <Styled.Container>
-            <Styled.BackButton onClick={onBack}>
-                <img
-                    src={rightArrowImg}
-                    alt="rightArrow"
-                />
-            </Styled.BackButton>
+            {onBack && (
+                <Styled.BackButton onClick={onBack}>
+                    <img
+                        src={rightArrowImg}
+                        alt="rightArrow"
+                    />
+                </Styled.BackButton>
+            )}
 
-            <Switch 
+            <Styled.SwitchContainer
                 onChange={handleChange}
                 isChecked={isChecked}
                 labelLeft="°F"

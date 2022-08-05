@@ -5,10 +5,9 @@ export const Container = styled.footer`
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        position: absolute;
-        bottom: 5%;
         width: 100%;
         color: #FFFFFF;
+        margin-bottom: 15px;
 
         .languageText{
               display: flex;

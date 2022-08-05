@@ -5,6 +5,7 @@ export const Container = styled.div`
     align-items: center;
     gap: 5px;
     cursor: pointer;
+    justify-self: baseline;
 `
 type SwitchProps = {
     checked: boolean;

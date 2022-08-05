@@ -3,7 +3,7 @@ type Language = "pt_br" | "en" | "sp";
 export const translate = {
     geoNotSupported(language: Language) {
         return {
-            "pt_br": "Seu navegador nao suporta geolocalizaçao",
+            "pt_br": "Seu navegador não suporta geolocalização",
             "en": "Your browser doesn't support geolocalization",
             "sp": "Tu navegador no soporta geolocalización"
         }[language]
@@ -11,7 +11,7 @@ export const translate = {
 
     geoRejected(language: Language) {
         return {
-            "pt_br": "O usuario rejeitou a solicitaçao de geolocalizaçao",
+            "pt_br": "O usuário rejeitou a solicitação de geolocalização",
             "en": "User rejected geolocalization request",
             "sp": "Solicitud de geolocalización rechazada por el usuario"
         }[language]
@@ -19,7 +19,7 @@ export const translate = {
 
     geoUnavailable(language: Language) {
         return {
-            "pt_br": "Localizaçao indisponivel",
+            "pt_br": "Localização indisponível",
             "en": "Position Unavailable",
             "sp": "Ubicación no disponible"
         }[language]
@@ -43,9 +43,9 @@ export const translate = {
 
     useYourLocation(language: Language) {
         return {
-            "pt_br": "Deseja usar sua localizaçao?",
+            "pt_br": "Deseja usar sua localização?",
             "en": "Like use your localization?",
-            "sp": "Quieres usar su ubicacion"
+            "sp": "¿Quieres usar su ubicacion?"
         }[language]
     },
 
@@ -62,6 +62,14 @@ export const translate = {
             "pt_br": "Ver previsão para os próximos 5 días",
             "en": "See forecast for the next 5 days",
             "sp": "Ver previsión para los próximos 5 días"
+        }[language]
+    },
+
+    weatherToday(language: Language) {
+        return {
+            "pt_br": "Como está o tempo hoje?",
+            "en": "How are weather today?",
+            "sp": "¿Como está el tiempo hoy?"
         }[language]
     }
 }

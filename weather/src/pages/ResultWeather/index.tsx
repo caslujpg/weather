@@ -6,6 +6,7 @@ import { Header } from "../../components/Header";
 import { useLanguage } from "../../context/languageContext"
 import { translate } from '../Home/translate';
 import * as Styled from './styles';
+import { Footer } from '../../components/Footer';
 
 type Weather = {
     name: string;
@@ -59,19 +60,25 @@ export default function Results() {
         <Styled.Container>
             <Header onChangeUnit={fetchWeather} onBack={() => navigate("/")} />
             
-            <div className="answer">
+            <Styled.Content>
                 <h2>{weather?.name}</h2>
-                <span>{weather?.description}</span>
+
+                <span className="description">{weather?.description}</span>
+
                 <div className="currentTemp">
                     <div className="currentTempValue">{weather?.currentTemp.toFixed(0)}{weather?.unit}</div>
                     <img src={weather?.iconImage} alt={`icon-${weather?.description}`} />
                 </div>
+
                 <div className="minMax">
                     <span><strong>MAX: </strong>{weather?.tempMax.toFixed(0)}{weather?.unit}</span>
                     <span><strong>  MIN: </strong>{weather?.tempMin.toFixed(0)}{weather?.unit}</span>
                 </div>
+
                 <span className="nextWeather">{translate.seeNextWeather(language)}</span>
-            </div>
+            </Styled.Content>
+
+            <Footer />
         </Styled.Container>
     );
 }

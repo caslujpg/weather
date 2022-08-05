@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Switch } from '../Switch';
 
 export const Container = styled.header`
     width: 100%;
@@ -14,4 +15,8 @@ export const BackButton = styled.button`
     margin-left: 20px;
     margin-top: 20px;
     
+`;
+
+export const SwitchContainer = styled(Switch)`
+    margin-left: auto;
 `;

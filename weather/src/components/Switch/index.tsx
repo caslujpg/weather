@@ -9,7 +9,7 @@ type SwitchProps = {
     labelRight?: string;
 }
 
-export function Switch({ onChange, isChecked = false, labelRight, labelLeft }: SwitchProps) {
+export function Switch({ onChange, isChecked = false, labelRight, labelLeft, ...restProps}: SwitchProps) {
     const [checked, setChecked] = useState(isChecked);
 
     const handleChange = () => {
@@ -22,7 +22,7 @@ export function Switch({ onChange, isChecked = false, labelRight, labelLeft }: S
     }, [isChecked])
 
     return (
-        <Styled.Container onClick={handleChange}>
+        <Styled.Container onClick={handleChange} {...restProps}>
             <Styled.Label>{labelLeft}</Styled.Label>
             <Styled.Switch checked={checked}>
                 <Styled.Indicator checked={checked} />
