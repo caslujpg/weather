@@ -8,7 +8,7 @@ com opçoes de linguagem em pt_br, en ou sp, consumindo 2 apis, uma do google e 
 
 
   <h2 id="sobre">💻O projeto💻</h2>
-  Projeto feito durante o processo seletivo do [Letras](https://letras.com)
+  Projeto feito durante o processo seletivo do [Letras](https://www.letras.com)
   E uma aplicação que exibe os dados climáticos da região ou das cidades escolhidas, com funçoes de:
   geolocalizaçao, autocomplete, previsao para os proximos 5 dias, medidas em °C ou °F e 3 opçoes de idiomas. 
   Feito com React, typescript, JS e HTML.
@@ -46,6 +46,6 @@ Obs: precisa pegar a sua chave api do [openweather](https://openweathermap.org/a
 
  <h2 id="autor">🧔🏻Autor🧔🏻</h2>
 
-[Lucas Leonardo](https://www.linkedin.com/in/lucas-leonardo-9567b6187/)
-[Instagram](https://www.instagram.com/caslu_jpg/)
+[Lucas Leonardo](https://www.linkedin.com/in/lucas-leonardo-9567b6187/)</br>
+[Instagram](https://www.instagram.com/caslu_jpg/)</br>
 [Email](caslujpg@gmail.com)
