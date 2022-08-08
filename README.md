@@ -11,6 +11,8 @@
 
 <h2 id="aplicacao">⚙️Rodando a aplicação⚙️</h2>
 
+![alt text](https://imgflip.com/gif/6p9qz0)
+
 Requisitos:  [Git](https://git-scm.com/),  [Node.js](https://nodejs.org/en/),  [Yarn](https://yarnpkg.com/), [VSCode](https://code.visualstudio.com/).
 
 ```
