@@ -1,6 +1,6 @@
 <h1 align="center">🌦️Weather🌦️</h1>
 
-<p align="center">  <a href="#sobre">Sobre</a> • <a href="#aplicacao">Aplicação</a>  • <a href="#techs">Tecnologias</a> • <a href="#autor">Autor</a>
+<p align="center">  <a href="#sobre">Sobre</a>  •  <a href="#layout">Layout</a>  •  <a href="#aplicacao">Aplicação</a>  • <a href="#techs">Tecnologias</a> • <a href="#autor">Autor</a>
 
 
   <h2 id="sobre">💻O projeto💻</h2>
@@ -8,10 +8,12 @@
   E uma aplicação que exibe os dados climáticos da região ou das cidades escolhidas, com funçoes de:
   geolocalizaçao, autocomplete, previsao para os proximos 5 dias, medidas em °C ou °F e 3 opçoes de idiomas.</br>
   Feito com React, typescript, JS e HTML.
+  
+  <h2 id="layout">🎨Layouts🎨</h2>
+  
+  ![6p9qz0](https://user-images.githubusercontent.com/61885918/183418682-83357d8c-91e2-45ae-9a9f-76d10911f1e9.gif)
 
 <h2 id="aplicacao">⚙️Rodando a aplicação⚙️</h2>
-
-<div style="width:500px;max-width:100%;"><div style="height:0;padding-bottom:71.2%;position:relative;"><iframe width="500" height="356" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/6p9qz0"></iframe></div><p><a href="https://imgflip.com/gif/6p9qz0">via Imgflip</a></p></div>
 
 Requisitos:  [Git](https://git-scm.com/),  [Node.js](https://nodejs.org/en/),  [Yarn](https://yarnpkg.com/), [VSCode](https://code.visualstudio.com/).
 
