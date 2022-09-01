@@ -10,7 +10,7 @@
   
   <h2 id="layout">🎨Layouts🎨</h2>
   
-![Desktop (1)](https://user-images.githubusercontent.com/61885918/187833964-a6afaf02-ae5c-486d-94ea-80fd829af20b.gif)
+![Desktop (1) (1)](https://user-images.githubusercontent.com/61885918/187834171-8c91423b-f5ef-4957-b3e1-6f5ff127d284.gif)
 
 <h2 id="aplicacao">⚙️Rodando a aplicação⚙️</h2>
 
