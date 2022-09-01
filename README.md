@@ -10,8 +10,7 @@
   
   <h2 id="layout">🎨Layouts🎨</h2>
   
- ![Projeto letras GIF](https://user-images.githubusercontent.com/61885918/187736652-cfa71781-e270-4f41-a304-9ffab4e5d46f.gif)
-
+![Desktop (1)](https://user-images.githubusercontent.com/61885918/187833964-a6afaf02-ae5c-486d-94ea-80fd829af20b.gif)
 
 <h2 id="aplicacao">⚙️Rodando a aplicação⚙️</h2>
 
