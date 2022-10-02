@@ -45,6 +45,6 @@ Obs: precisa pegar a sua chave api do [OpenWeather](https://openweathermap.org/a
 
  <h2 id="autor">🧔🏻Autor🧔🏻</h2>
 
-[Lucas Leonardo](https://www.linkedin.com/in/lucas-leonardo-9567b6187/)</br>
-[Instagram](https://www.instagram.com/caslu_jpg/)</br>
+<h3>Lucas Leonardo</h3>
+[Linkedin](https://www.linkedin.com/in/lucas-leonardo-9567b6187/)</br>
 [Email](caslujpg@gmail.com)
