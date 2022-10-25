@@ -47,5 +47,5 @@ Obs: precisa pegar a sua chave api do [OpenWeather](https://openweathermap.org/a
 
 <h3>Lucas Leonardo</h3>
 
-[Linkedin](https://www.linkedin.com/in/lucas-leonardo-9567b6187/)</br>
+[Linkedin](https://www.linkedin.com/in/caslujpg/)</br>
 [Email](caslujpg@gmail.com)
