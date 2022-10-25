@@ -18,7 +18,7 @@ Requisitos:  [Git](https://git-scm.com/),  [Node.js](https://nodejs.org/en/),  [
 
 ```
 # Clone este repositório
-$ git clone https://github.com/wesleywisch/Clima.git
+$ git clone https://github.com/caslujpg/weather.git
 
 # No terminal, acesse a pasta do projeto
 $ cd weather
