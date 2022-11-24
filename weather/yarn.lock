@@ -1226,7 +1226,7 @@
   dependencies:
     "@humanwhocodes/object-schema" "^1.2.1"
     debug "^4.1.1"
-    minimatch "^3.0.4"
+    minimatch "^3.0.5"
 
 "@humanwhocodes/object-schema@^1.2.1":
   version "1.2.1"
